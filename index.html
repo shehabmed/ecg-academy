@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECG Academy | Learn Every Heartbeat</title>
+<style>
+:root {
+  --navy:#10243b;
+  --teal:#0d9488;
+  --bg:#f5f8fb;
+  --white:#fff;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--navy);
+}
+header {
+  background:var(--white);
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #e5eaf0;
+}
+.logo {font-weight:800;font-size:21px}
+.logo span {color:var(--teal)}
+button {
+  cursor:pointer;
+  border:0;
+  border-radius:9px;
+  padding:12px 18px;
+  font-weight:bold;
+}
+.lang {background:#e8f5f3;color:#087f76}
+.hero {
+  padding:65px 7%;
+  background:var(--navy);
+  color:white;
+}
+.hero h1 {font-size:clamp(34px,5vw,56px);max-width:650px}
+.hero p {color:#c8d8e8;line-height:1.7;max-width:560px}
+.primary {background:var(--teal);color:white}
+.container {padding:42px 7%}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card {
+  background:white;
+  border:1px solid #e4eaf0;
+  border-radius:14px;
+  padding:22px;
+}
+.card h3 {margin-top:8px}
+.card p {color:#63758a;line-height:1.6}
+.icon {font-size:28px}
+.ecg {
+  background:#102d43;
+  color:#66e2ca;
+  border-radius:12px;
+  padding:20px;
+  overflow:hidden;
+  margin-top:25px;
+}
+.ecg svg {width:100%;height:100px}
+.quiz button {
+  display:block;
+  width:100%;
+  text-align:left;
+  margin:10px 0;
+  background:#edf3f7;
+  color:var(--navy);
+}
+.quiz button:hover {background:#dcefeb}
+#feedback {font-weight:bold;margin-top:15px}
+footer {
+  background:var(--navy);
+  color:white;
+  padding:30px 7%;
+  line-height:1.7;
+}
+.small {font-size:13px;color:#64748b}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">❤️ ECG <span>Academy</span></div>
+  <button class="lang" onclick="toggleLang()" id="lang">
+    Русский
+  </button>
+</header>
+
+<section class="hero">
+  <h1 id="headline">Learn to read ECGs with confidence.</h1>
+  <p id="intro">
+    A step-by-step ECG learning platform designed
+    for medical students. Learn, practice and understand
+    every heartbeat.
+  </p>
+  <button class="primary" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})" id="start">
+    Start learning →
+  </button>
+
+  <div class="ecg">
+    <div>YOUR HEART. YOUR KNOWLEDGE.</div>
+    <svg viewBox="0 0 800 100" preserveAspectRatio="none">
+      <path d="M0 55 L120 55 L140 45 L155 65 L175 55 L205 55 L220 20 L240 90 L260 5 L280 55 L400 55 L420 45 L435 65 L455 55 L485 55 L500 20 L520 90 L540 5 L560 55 L800 55"
+      fill="none" stroke="#66e2ca" stroke-width="3"/>
+    </svg>
+  </div>
+</section>
+
+<main>
+<section class="container" id="courses">
+  <h2 id="courseTitle">Explore ECG courses</h2>
+  <div class="grid" id="modules"></div>
+</section>
+
+<section class="container">
+  <h2 id="quizTitle">Test your ECG knowledge</h2>
+  <div class="card quiz">
+    <h3 id="question">What does the P wave represent?</h3>
+    <div id="answers"></div>
+    <p id="feedback"></p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="card">
+    <h2 id="premiumTitle">Your ECG journey starts here.</h2>
+    <p id="premiumText">
+      Learn at your own pace. Build knowledge.
+      Become confident with ECG interpretation.
+    </p>
+    <p class="small" id="premiumNote">
+      Free educational content. Premium courses coming soon.
+    </p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>ECG Academy</strong>
+  <p id="footerText">
+    Medical education for future doctors.
+    English | Русский
+  </p>
+  <p class="small">
+    Educational purposes only. Not intended for diagnosis
+    or replacement of professional medical assessment.
+  </p>
+</footer>
+
+<script>
+let language = "en";
+
+const translations = {
+en: {
+headline:"Learn to read ECGs with confidence.",
+intro:"A step-by-step ECG learning platform designed for medical students. Learn, practice and understand every heartbeat.",
+start:"Start learning →",
+courseTitle:"Explore ECG courses",
+quizTitle:"Test your ECG knowledge",
+premiumTitle:"Your ECG journey starts here.",
+premiumText:"Learn at your own pace. Build knowledge. Become confident with ECG interpretation.",
+premiumNote:"Free educational content. Premium courses coming soon.",
+footerText:"Medical education for future doctors. English | Русский",
+modules:[
+["📚","ECG Fundamentals","Learn the basic principles of electrocardiography."],
+["💓","Waves and Intervals","Understand P, QRS, T, PR and QT."],
+["📈","Heart Rate and Rhythm","Learn systematic rhythm interpretation."],
+["🫀","ECG Arrhythmias","Explore common cardiac rhythm disorders."],
+["🔬","12-Lead ECG","Understand leads and cardiac axis."],
+["🩺","Clinical Cases","Practice with educational ECG cases."]
+],
+question:"What does the P wave represent?",
+answers:["Ventricular depolarization","Atrial depolarization","Ventricular repolarization"],
+feedback:"Correct! The P wave represents atrial depolarization."
+},
+ru: {
+headline:"Научитесь уверенно читать ЭКГ.",
+intro:"Пошаговая образовательная платформа по ЭКГ для студентов-медиков. Изучайте, практикуйтесь и понимайте каждое сердцебиение.",
+start:"Начать обучение →",
+courseTitle:"Курсы по ЭКГ",
+quizTitle:"Проверьте свои знания",
+premiumTitle:"Ваш путь в изучении ЭКГ начинается здесь.",
+premiumText:"Учитесь в собственном темпе. Развивайте знания и навыки интерпретации ЭКГ.",
+premiumNote:"Бесплатные учебные материалы. Платные курсы появятся позже.",
+footerText:"Медицинское образование для будущих врачей. English | Русский",
+modules:[
+["📚","Основы ЭКГ","Изучите базовые принципы электрокардиографии."],
+["💓","Зубцы и интервалы","Разберитесь в P, QRS, T, PR и QT."],
+["📈","ЧСС и ритм","Научитесь систематически оценивать ритм."],
+["🫀","Аритмии","Изучите распространённые нарушения ритма."],
+["🔬","12 отведений ЭКГ","Поймите отведения и электрическую ось сердца."],
+["🩺","Клинические случаи","Практикуйтесь на учебных примерах ЭКГ."]
+],
+question:"Что отражает зубец P?",
+answers:["Деполяризацию желудочков","Деполяризацию предсердий","Реполяризацию желудочков"],
+feedback:"Правильно! Зубец P отражает деполяризацию предсердий."
+}
+};
+
+function render() {
+const t = translations[language];
+document.documentElement.lang = language;
+document.getElementById("headline").textContent=t.headline;
+document.getElementById("intro").textContent=t.intro;
+document.getElementById("start").textContent=t.start;
+document.getElementById("courseTitle").textContent=t.courseTitle;
+document.getElementById("quizTitle").textContent=t.quizTitle;
+document.getElementById("premiumTitle").textContent=t.premiumTitle;
+document.getElementById("premiumText").textContent=t.premiumText;
+document.getElementById("premiumNote").textContent=t.premiumNote;
+document.getElementById("footerText").textContent=t.footerText;
+document.getElementById("question").textContent=t.question;
+document.getElementById("lang").textContent=language==="en"?"Русский":"English";
+
+document.getElementById("modules").innerHTML=t.modules.map(m=>`
+<div class="card">
+<div class="icon">${m[0]}</div>
+<h3>${m[1]}</h3>
+<p>${m[2]}</p>
+</div>`).join("");
+
+document.getElementById("answers").innerHTML=t.answers.map((a,i)=>`
+<button onclick="answer(${i})">${a}</button>`).join("");
+document.getElementById("feedback").textContent="";
+}
+
+function toggleLang() {
+language=language==="en"?"ru":"en";
+render();
+}
+
+function answer(i) {
+const t=translations[language];
+const feedback=document.getElementById("feedback");
+feedback.textContent=i===1?t.feedback:
+(language==="en"?"Not quite. Try again!":"Не совсем. Попробуйте ещё раз!");
+feedback.style.color=i===1?"#0d9488":"#c05a46";
+}
+
+render();
+</script>
+</body>
+</html>
