@@ -220,3 +220,857 @@ const lessons = [
     ]
   }
 ];
+
+  {
+    id: 6,
+    title: "Sinus Bradycardia and Sinus Tachycardia",
+    duration: "25 min",
+    level: "Beginner",
+    content: `
+      <h2>Sinus Bradycardia and Sinus Tachycardia</h2>
+
+      <h3>Sinus Bradycardia</h3>
+      <p>Sinus bradycardia is a sinus rhythm with a heart rate below 60 beats per minute in adults.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Heart rate below 60 bpm.</li>
+        <li>Regular rhythm.</li>
+        <li>Normal P waves preceding every QRS complex.</li>
+        <li>Normal PR interval (120–200 ms).</li>
+        <li>Usually narrow QRS complexes.</li>
+      </ul>
+
+      <h4>Common Causes</h4>
+      <ul>
+        <li>Physical conditioning and athletic training.</li>
+        <li>Increased vagal tone.</li>
+        <li>Hypothyroidism.</li>
+        <li>Medications such as beta-blockers.</li>
+        <li>Sinus node dysfunction.</li>
+      </ul>
+
+      <h3>Sinus Tachycardia</h3>
+      <p>Sinus tachycardia is a sinus rhythm with a heart rate above 100 beats per minute in adults.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Heart rate above 100 bpm.</li>
+        <li>Regular rhythm.</li>
+        <li>Normal sinus P waves before every QRS.</li>
+        <li>Usually narrow QRS complexes.</li>
+      </ul>
+
+      <h4>Common Causes</h4>
+      <ul>
+        <li>Fever.</li>
+        <li>Dehydration.</li>
+        <li>Anemia.</li>
+        <li>Pain and anxiety.</li>
+        <li>Hypovolemia.</li>
+        <li>Hyperthyroidism.</li>
+      </ul>
+
+      <h3>Clinical Approach</h3>
+      <p>Always assess the patient's symptoms, blood pressure, perfusion, and underlying cause. Treat the underlying cause of sinus tachycardia rather than simply attempting to reduce the heart rate.</p>
+    `,
+    quiz: [
+      {
+        question: "What heart rate defines sinus bradycardia in adults?",
+        options: ["Below 60 bpm", "Above 100 bpm", "Above 150 bpm", "Below 100 bpm"],
+        answer: 0,
+        explanation: "Sinus bradycardia is conventionally defined as a sinus rate below 60 bpm in adults."
+      },
+      {
+        question: "Which of the following can cause sinus tachycardia?",
+        options: ["Hypothermia", "Fever", "Complete heart block", "Sinus node failure"],
+        answer: 1,
+        explanation: "Fever increases metabolic demand and commonly causes sinus tachycardia."
+      }
+    ]
+  },
+
+  {
+    id: 7,
+    title: "Atrial Arrhythmias",
+    duration: "35 min",
+    level: "Intermediate",
+    content: `
+      <h2>Atrial Arrhythmias</h2>
+
+      <p>Atrial arrhythmias originate from abnormal electrical activity in the atria.</p>
+
+      <h3>1. Atrial Fibrillation (AF)</h3>
+      <p>Atrial fibrillation is a supraventricular arrhythmia characterized by disorganized atrial electrical activity and an irregular ventricular response.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Irregularly irregular R-R intervals.</li>
+        <li>No consistent, distinct P waves.</li>
+        <li>Variable ventricular response.</li>
+        <li>Fine or coarse fibrillatory baseline activity may be visible.</li>
+      </ul>
+
+      <h4>Clinical Importance</h4>
+      <p>Atrial fibrillation increases the risk of thromboembolic stroke. Clinical assessment includes evaluating stroke risk, bleeding risk, ventricular rate, and associated heart disease.</p>
+
+      <h3>2. Atrial Flutter</h3>
+      <p>Atrial flutter is a macro-reentrant atrial arrhythmia, commonly involving the right atrium.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Characteristic sawtooth flutter waves.</li>
+        <li>Typical atrial rate around 250–350 bpm.</li>
+        <li>Commonly 2:1, 3:1, or 4:1 AV conduction.</li>
+        <li>Ventricular rhythm may be regular or irregular.</li>
+      </ul>
+
+      <h3>3. Premature Atrial Contractions (PACs)</h3>
+      <p>PACs are early atrial beats originating outside the SA node.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Early P wave with a different morphology.</li>
+        <li>Usually followed by a narrow QRS complex.</li>
+        <li>May produce a non-compensatory pause.</li>
+      </ul>
+
+      <h3>Clinical Approach</h3>
+      <p>Differentiate atrial fibrillation, atrial flutter, and premature atrial contractions by evaluating atrial activity, ventricular regularity, and the relationship between P waves and QRS complexes.</p>
+    `,
+    quiz: [
+      {
+        question: "Which ECG finding is characteristic of atrial fibrillation?",
+        options: [
+          "Regular R-R intervals",
+          "Irregularly irregular rhythm",
+          "Constant P waves",
+          "ST elevation"
+        ],
+        answer: 1,
+        explanation: "Atrial fibrillation typically produces an irregularly irregular ventricular rhythm without consistent P waves."
+      },
+      {
+        question: "What is the characteristic appearance of atrial flutter?",
+        options: [
+          "Sawtooth flutter waves",
+          "Delta waves",
+          "Osborn waves",
+          "U waves"
+        ],
+        answer: 0,
+        explanation: "Atrial flutter commonly produces characteristic sawtooth flutter waves."
+      }
+    ]
+  },
+
+  {
+    id: 8,
+    title: "Supraventricular Tachycardia and Junctional Rhythms",
+    duration: "35 min",
+    level: "Intermediate",
+    content: `
+      <h2>Supraventricular Tachycardia and Junctional Rhythms</h2>
+
+      <h3>Supraventricular Tachycardia (SVT)</h3>
+      <p>SVT describes tachyarrhythmias originating above the ventricles. Common regular narrow-complex SVTs include AV nodal reentrant tachycardia (AVNRT) and AV reentrant tachycardia (AVRT).</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Typically regular rhythm.</li>
+        <li>Usually narrow QRS complexes.</li>
+        <li>Heart rate commonly 150–250 bpm.</li>
+        <li>P waves may be hidden within or appear immediately after the QRS complexes.</li>
+        <li>Sudden onset and termination are common in reentrant SVTs.</li>
+      </ul>
+
+      <h3>Junctional Rhythms</h3>
+      <p>Junctional rhythms originate in or near the AV junction when the sinus node does not control the ventricular rhythm.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>P waves may be absent.</li>
+        <li>Retrograde P waves may be inverted in leads II, III, and aVF.</li>
+        <li>P waves may appear before, within, or after the QRS complex.</li>
+        <li>QRS complexes are usually narrow.</li>
+      </ul>
+
+      <h3>Types of Junctional Rhythm</h3>
+      <ul>
+        <li>Junctional escape rhythm: approximately 40–60 bpm.</li>
+        <li>Accelerated junctional rhythm: approximately 60–100 bpm.</li>
+        <li>Junctional tachycardia: above 100 bpm.</li>
+      </ul>
+
+      <h3>Clinical Approach to SVT</h3>
+      <p>Assess hemodynamic stability immediately. In stable regular narrow-complex SVT, vagal maneuvers and adenosine may be considered according to the clinical setting and appropriate protocols. Unstable tachycardia generally requires synchronized cardioversion.</p>
+    `,
+    quiz: [
+      {
+        question: "What is a common ECG feature of typical AVNRT?",
+        options: [
+          "Regular narrow-complex tachycardia",
+          "Irregular wide-complex rhythm",
+          "Absent ventricular activity",
+          "Persistent ST elevation"
+        ],
+        answer: 0,
+        explanation: "Typical AVNRT commonly produces a regular narrow-complex tachycardia with hidden or closely adjacent P waves."
+      },
+      {
+        question: "Where do junctional rhythms originate?",
+        options: ["SA node", "AV junction", "Purkinje fibers only", "Atrial appendage"],
+        answer: 1,
+        explanation: "Junctional rhythms originate in or near the atrioventricular junction."
+      }
+    ]
+  },
+
+  {
+    id: 9,
+    title: "Ventricular Arrhythmias",
+    duration: "40 min",
+    level: "Intermediate",
+    content: `
+      <h2>Ventricular Arrhythmias</h2>
+
+      <p>Ventricular arrhythmias originate below the AV node and can be life-threatening.</p>
+
+      <h3>1. Premature Ventricular Contractions (PVCs)</h3>
+      <p>PVCs are early ventricular beats caused by an ectopic ventricular impulse.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Premature beat.</li>
+        <li>Wide and abnormal QRS complex, usually 120 ms or greater.</li>
+        <li>No preceding sinus P wave related to the PVC.</li>
+        <li>Often followed by a compensatory pause.</li>
+      </ul>
+
+      <h3>2. Ventricular Tachycardia (VT)</h3>
+      <p>VT is a rapid rhythm originating in the ventricles, generally defined as three or more consecutive ventricular beats.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Wide QRS complexes.</li>
+        <li>Usually regular rhythm in monomorphic VT.</li>
+        <li>Rate commonly 100–250 bpm.</li>
+        <li>AV dissociation may be present.</li>
+        <li>Capture beats or fusion beats may occur.</li>
+      </ul>
+
+      <h3>3. Torsades de Pointes</h3>
+      <p>Torsades de pointes is a form of polymorphic ventricular tachycardia associated with prolonged QT interval.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Polymorphic wide-complex tachycardia.</li>
+        <li>QRS complexes appear to twist around the baseline.</li>
+        <li>Associated with prolonged QTc.</li>
+      </ul>
+
+      <h3>4. Ventricular Fibrillation (VF)</h3>
+      <p>Ventricular fibrillation is a chaotic ventricular rhythm without effective coordinated cardiac contraction.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Chaotic electrical activity.</li>
+        <li>No identifiable organized QRS complexes.</li>
+        <li>No effective cardiac output.</li>
+      </ul>
+
+      <h3>Emergency Management</h3>
+      <p>Pulseless VT and VF are cardiac arrest rhythms requiring immediate CPR and defibrillation according to resuscitation guidelines. Do not delay emergency treatment while attempting a detailed ECG interpretation.</p>
+    `,
+    quiz: [
+      {
+        question: "Which ECG feature is typical of a PVC?",
+        options: [
+          "Early wide QRS complex",
+          "Early normal P wave",
+          "Continuous sawtooth waves",
+          "Prolonged PR interval"
+        ],
+        answer: 0,
+        explanation: "PVCs typically produce premature, wide, abnormal QRS complexes without a preceding related sinus P wave."
+      },
+      {
+        question: "Which arrhythmia is associated with a prolonged QT interval?",
+        options: [
+          "Normal sinus rhythm",
+          "Torsades de pointes",
+          "Sinus bradycardia",
+          "First-degree AV block"
+        ],
+        answer: 1,
+        explanation: "Torsades de pointes is a polymorphic ventricular tachycardia associated with prolonged QTc."
+      },
+      {
+        question: "Which rhythm is a shockable cardiac arrest rhythm?",
+        options: [
+          "Sinus bradycardia",
+          "Atrial fibrillation",
+          "Ventricular fibrillation",
+          "First-degree AV block"
+        ],
+        answer: 2,
+        explanation: "Ventricular fibrillation is a shockable cardiac arrest rhythm requiring immediate defibrillation and CPR."
+      }
+    ]
+  },
+
+  {
+    id: 10,
+    title: "Atrioventricular Blocks",
+    duration: "40 min",
+    level: "Intermediate",
+    content: `
+      <h2>Atrioventricular Blocks</h2>
+
+      <p>AV blocks occur when electrical impulses from the atria are delayed or interrupted during conduction to the ventricles.</p>
+
+      <h3>1. First-Degree AV Block</h3>
+      <p>First-degree AV block is characterized by prolonged AV conduction.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>PR interval greater than 200 ms.</li>
+        <li>Every P wave is followed by a QRS complex.</li>
+        <li>PR interval remains constant.</li>
+      </ul>
+
+      <h3>2. Second-Degree AV Block Type I (Mobitz I / Wenckebach)</h3>
+      <p>Progressive prolongation of the PR interval occurs until a P wave fails to conduct to the ventricles.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Progressively lengthening PR intervals.</li>
+        <li>One P wave is not followed by a QRS complex.</li>
+        <li>Pattern repeats.</li>
+      </ul>
+
+      <h3>3. Second-Degree AV Block Type II (Mobitz II)</h3>
+      <p>Intermittent failure of atrial impulses to conduct to the ventricles without progressive PR prolongation.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Constant PR intervals in conducted beats.</li>
+        <li>Sudden non-conducted P waves.</li>
+        <li>May be associated with wide QRS complexes.</li>
+      </ul>
+
+      <h3>4. Third-Degree AV Block (Complete Heart Block)</h3>
+      <p>Complete failure of electrical conduction from atria to ventricles.</p>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>Complete AV dissociation.</li>
+        <li>P waves and QRS complexes occur independently.</li>
+        <li>Atrial rate is usually faster than ventricular rate.</li>
+        <li>Escape rhythm may be narrow or wide.</li>
+      </ul>
+
+      <h3>Clinical Importance</h3>
+      <p>Mobitz II and complete AV block are potentially serious conduction abnormalities. Urgent assessment and monitoring are necessary, and pacing may be required depending on the clinical situation.</p>
+    `,
+    quiz: [
+      {
+        question: "What is the defining feature of first-degree AV block?",
+        options: [
+          "PR interval greater than 200 ms",
+          "Absent P waves",
+          "Wide QRS complexes only",
+          "Progressively shortening PR interval"
+        ],
+        answer: 0,
+        explanation: "First-degree AV block is defined by a PR interval greater than 200 ms with every P wave conducted."
+      },
+      {
+        question: "Which pattern is characteristic of Mobitz I?",
+        options: [
+          "Constant PR interval with dropped beats",
+          "Progressive PR prolongation followed by a dropped QRS",
+          "Complete AV dissociation",
+          "Short PR interval"
+        ],
+        answer: 1,
+        explanation: "Mobitz I shows progressive PR prolongation until a P wave fails to conduct."
+      },
+      {
+        question: "What is the key finding in complete heart block?",
+        options: [
+          "Every P wave conducts",
+          "Atrial and ventricular activity are independent",
+          "PR interval is always short",
+          "Only premature atrial beats"
+        ],
+        answer: 1,
+        explanation: "Third-degree AV block causes complete AV dissociation."
+      }
+    ]
+  },
+
+  {
+    id: 11,
+    title: "Bundle Branch Blocks",
+    duration: "35 min",
+    level: "Intermediate",
+    content: `
+      <h2>Bundle Branch Blocks</h2>
+
+      <p>Bundle branch blocks occur when electrical conduction through either the right or left bundle branch is delayed or interrupted.</p>
+
+      <h3>Right Bundle Branch Block (RBBB)</h3>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>QRS duration at least 120 ms in complete RBBB.</li>
+        <li>rsR' or rSR' pattern in V1–V2.</li>
+        <li>Broad terminal S wave in leads I and V6.</li>
+      </ul>
+
+      <h3>Left Bundle Branch Block (LBBB)</h3>
+
+      <h4>ECG Characteristics</h4>
+      <ul>
+        <li>QRS duration at least 120 ms in complete LBBB.</li>
+        <li>Broad or notched R waves in leads I, aVL, V5, and V6.</li>
+        <li>Predominantly negative QRS in V1.</li>
+        <li>Usually absent normal septal Q waves in lateral leads.</li>
+      </ul>
+
+      <h3>Clinical Significance</h3>
+      <p>Bundle branch blocks may occur in patients with structural heart disease, ischemic heart disease, cardiomyopathy, or degenerative conduction disease.</p>
+
+      <h3>Important Clinical Warning</h3>
+      <p>New or presumed new LBBB in a patient with suspected acute coronary syndrome requires careful clinical evaluation. LBBB alone is not sufficient to diagnose an acute myocardial infarction.</p>
+
+      <h3>Comparison</h3>
+      <ul>
+        <li>RBBB: characteristic terminal R' in V1.</li>
+        <li>LBBB: broad, often notched R waves in lateral leads.</li>
+        <li>Both complete blocks produce QRS duration of at least 120 ms.</li>
+      </ul>
+    `,
+    quiz: [
+      {
+        question: "Which lead commonly shows an rsR' pattern in RBBB?",
+        options: ["V1", "V6", "II", "aVF"],
+        answer: 0,
+        explanation: "An rsR' or rSR' pattern in V1–V2 is characteristic of RBBB."
+      },
+      {
+        question: "What is the typical QRS duration in complete bundle branch block?",
+        options: [
+          "Less than 80 ms",
+          "At least 120 ms",
+          "Exactly 100 ms",
+          "Less than 60 ms"
+        ],
+        answer: 1,
+        explanation: "Complete RBBB and LBBB are characterized by QRS duration of at least 120 ms."
+      }
+    ]
+  },
+
+  {
+    id: 12,
+    title: "12-Lead ECG Interpretation",
+    duration: "45 min",
+    level: "Advanced",
+    content: `
+      <h2>Systematic 12-Lead ECG Interpretation</h2>
+
+      <p>A systematic approach reduces errors and helps identify important ECG abnormalities.</p>
+
+      <h3>Step 1: Check Patient Information and Calibration</h3>
+      <ul>
+        <li>Confirm patient identity and ECG date.</li>
+        <li>Check paper speed, usually 25 mm/s.</li>
+        <li>Check calibration, usually 10 mm/mV.</li>
+      </ul>
+
+      <h3>Step 2: Calculate Heart Rate</h3>
+      <p>For regular rhythms: 300 divided by the number of large squares between consecutive R waves.</p>
+
+      <h3>Step 3: Assess Rhythm</h3>
+      <ul>
+        <li>Is the rhythm regular?</li>
+        <li>Are P waves present?</li>
+        <li>Does each P wave precede a QRS?</li>
+        <li>Is the PR interval consistent?</li>
+      </ul>
+
+      <h3>Step 4: Evaluate the Cardiac Axis</h3>
+      <p>Use leads I and aVF as an initial assessment of the QRS axis.</p>
+      <ul>
+        <li>Lead I positive and aVF positive: usually normal axis.</li>
+        <li>Lead I positive and aVF negative: possible left axis deviation; assess lead II.</li>
+        <li>Lead I negative and aVF positive: right axis deviation.</li>
+        <li>Both negative: extreme axis deviation.</li>
+      </ul>
+
+      <h3>Step 5: Measure Intervals</h3>
+      <ul>
+        <li>PR: 120–200 ms.</li>
+        <li>QRS: usually less than 120 ms.</li>
+        <li>QT: assess QTc according to heart rate and clinical context.</li>
+      </ul>
+
+      <h3>Step 6: Examine QRS Morphology</h3>
+      <p>Look for pathological Q waves, bundle branch blocks, ventricular hypertrophy patterns, and abnormal R-wave progression.</p>
+
+      <h3>Step 7: Evaluate ST Segments and T Waves</h3>
+      <p>Look for ST elevation, ST depression, T-wave inversion, and other repolarization abnormalities. Interpret changes according to lead distribution and clinical presentation.</p>
+
+      <h3>Step 8: Write a Structured Interpretation</h3>
+      <p>Document rate, rhythm, axis, intervals, QRS morphology, ST-T changes, and your overall interpretation.</p>
+    `,
+    quiz: [
+      {
+        question: "What is the standard ECG paper speed?",
+        options: ["10 mm/s", "25 mm/s", "50 cm/s", "100 mm/s"],
+        answer: 1,
+        explanation: "The standard ECG paper speed is 25 mm/s."
+      },
+      {
+        question: "Which leads can be used for an initial frontal QRS axis assessment?",
+        options: ["V1 and V2", "I and aVF", "V5 and V6", "aVR and V1"],
+        answer: 1,
+        explanation: "Leads I and aVF provide a quick initial assessment of the frontal QRS axis."
+      }
+    ]
+  },
+
+  {
+    id: 13,
+    title: "Myocardial Ischemia and Infarction",
+    duration: "45 min",
+    level: "Advanced",
+    content: `
+      <h2>Myocardial Ischemia and Infarction</h2>
+
+      <p>Myocardial ischemia occurs when oxygen supply to the myocardium is insufficient for its metabolic needs. Acute myocardial infarction involves myocardial injury and necrosis, usually due to acute coronary artery occlusion.</p>
+
+      <h3>ECG Changes in Ischemia</h3>
+      <ul>
+        <li>ST-segment depression.</li>
+        <li>T-wave inversion.</li>
+        <li>Dynamic ST-T changes.</li>
+      </ul>
+
+      <h3>ECG Changes in Acute Myocardial Infarction</h3>
+      <ul>
+        <li>ST-segment elevation in anatomically related leads may indicate acute coronary occlusion.</li>
+        <li>Hyperacute T waves may occur early.</li>
+        <li>Pathological Q waves may develop.</li>
+        <li>Reciprocal ST-segment depression may be present.</li>
+      </ul>
+
+      <h3>Coronary Artery Territories</h3>
+      <ul>
+        <li>Inferior: II, III, aVF.</li>
+        <li>Septal: V1–V2.</li>
+        <li>Anterior: V3–V4.</li>
+        <li>Lateral: I, aVL, V5–V6.</li>
+        <li>Posterior: V7–V9, or suggested by reciprocal changes in V1–V3.</li>
+      </ul>
+
+      <h3>Common Clinical Patterns</h3>
+
+      <h4>Inferior MI</h4>
+      <p>ST elevation in leads II, III, and aVF. Consider right ventricular involvement, particularly with proximal RCA occlusion.</p>
+
+      <h4>Anterior MI</h4>
+      <p>ST elevation in V1–V4 may suggest anterior or anteroseptal myocardial injury.</p>
+
+      <h4>Lateral MI</h4>
+      <p>ST elevation in I, aVL, V5, and V6 may suggest lateral myocardial injury.</p>
+
+      <h3>Clinical Assessment</h3>
+      <p>Suspected acute coronary syndrome requires immediate clinical assessment, repeat ECGs when indicated, and cardiac troponin testing. A normal initial ECG does not exclude acute coronary syndrome.</p>
+
+      <h3>Emergency Warning</h3>
+      <p>Do not delay emergency assessment or reperfusion treatment in a patient with suspected acute coronary occlusion while waiting for a complete set of investigations.</p>
+    `,
+    quiz: [
+      {
+        question: "Which leads represent the inferior wall?",
+        options: [
+          "V1–V4",
+          "I and aVL",
+          "II, III, aVF",
+          "V5 and V6 only"
+        ],
+        answer: 2,
+        explanation: "Leads II, III, and aVF represent the inferior wall."
+      },
+      {
+        question: "Which ECG change may indicate myocardial ischemia?",
+        options: [
+          "ST depression",
+          "Short PR interval only",
+          "Delta wave",
+          "Normal P wave"
+        ],
+        answer: 0,
+        explanation: "ST depression may indicate myocardial ischemia, depending on the clinical context."
+      },
+      {
+        question: "Which leads are primarily associated with anterior myocardial injury?",
+        options: ["II, III, aVF", "V3–V4", "I and aVL", "V7–V9"],
+        answer: 1,
+        explanation: "V3–V4 are the principal anterior leads."
+      }
+    ]
+  },
+
+  {
+    id: 14,
+    title: "Clinical ECG Case Studies",
+    duration: "50 min",
+    level: "Advanced",
+    content: `
+      <h2>Clinical ECG Case Studies</h2>
+
+      <p>This lesson applies ECG interpretation skills to clinical scenarios. Analyze each case systematically before looking at the answer.</p>
+
+      <h3>Case 1: Irregular Tachycardia</h3>
+      <p>A 72-year-old patient presents with palpitations and fatigue. ECG findings:</p>
+      <ul>
+        <li>Heart rate approximately 130 bpm.</li>
+        <li>Irregularly irregular rhythm.</li>
+        <li>No consistent P waves.</li>
+        <li>Variable R-R intervals.</li>
+      </ul>
+
+      <p><strong>Most likely diagnosis:</strong> Atrial fibrillation with rapid ventricular response.</p>
+
+      <h3>Case 2: Regular Bradycardia</h3>
+      <p>A 25-year-old athlete has a heart rate of 48 bpm. ECG findings:</p>
+      <ul>
+        <li>Regular rhythm.</li>
+        <li>Normal P waves before every QRS.</li>
+        <li>Normal PR interval.</li>
+        <li>Narrow QRS complexes.</li>
+      </ul>
+
+      <p><strong>Most likely diagnosis:</strong> Sinus bradycardia.</p>
+
+      <h3>Case 3: Wide-Complex Tachycardia</h3>
+      <p>A 65-year-old patient with previous myocardial infarction presents with palpitations and dizziness. ECG findings:</p>
+      <ul>
+        <li>Regular wide-complex tachycardia.</li>
+        <li>Heart rate approximately 180 bpm.</li>
+        <li>Possible AV dissociation.</ul>
+      <p><strong>Most likely diagnosis:</strong> Monomorphic ventricular tachycardia. Treat an undifferentiated wide-complex tachycardia with a high index of suspicion for VT.</p>
+
+      <h3>Case 4: Prolonged PR Interval</h3>
+      <p>A patient undergoes a routine ECG. Findings:</p>
+      <ul>
+        <li>PR interval of 240 ms.</li>
+        <li>Every P wave is followed by a QRS complex.</li>
+        <li>Regular rhythm.</li>
+      </ul>
+
+      <p><strong>Most likely diagnosis:</strong> First-degree AV block.</p>
+
+      <h3>Case 5: Acute Chest Pain</h3>
+      <p>A 58-year-old patient presents with severe central chest pain and sweating. ECG findings:</p>
+      <ul>
+        <li>ST elevation in leads II, III, and aVF.</li>
+        <li>Possible reciprocal ST depression in I and aVL.</li>
+      </ul>
+
+      <p><strong>Most likely diagnosis:</strong> Acute inferior STEMI, requiring emergency assessment and reperfusion pathway activation.</p>
+
+      <h3>Clinical Learning Points</h3>
+      <ul>
+        <li>Always evaluate the patient before interpreting the tracing in isolation.</li>
+        <li>Assess rate, rhythm, axis, intervals, and morphology systematically.</li>
+        <li>Recognize life-threatening ECG abnormalities immediately.</li>
+        <li>Compare previous ECGs when available.</li>
+      </ul>
+    `,
+    quiz: [
+      {
+        question: "An irregularly irregular rhythm without consistent P waves suggests:",
+        options: [
+          "Sinus rhythm",
+          "Atrial fibrillation",
+          "First-degree AV block",
+          "Ventricular pacing"
+        ],
+        answer: 1,
+        explanation: "Irregularly irregular R-R intervals without consistent P waves are characteristic of atrial fibrillation."
+      },
+      {
+        question: "A regular wide-complex tachycardia in a patient with previous MI should be presumed to be:",
+        options: [
+          "Sinus tachycardia",
+          "Atrial flutter",
+          "Ventricular tachycardia",
+          "Normal sinus rhythm"
+        ],
+        answer: 2,
+        explanation: "VT should be strongly suspected in patients with structural heart disease and regular wide-complex tachycardia."
+      },
+      {
+        question: "ST elevation in II, III, and aVF suggests which infarction territory?",
+        options: ["Anterior", "Inferior", "Lateral", "Septal"],
+        answer: 1,
+        explanation: "Leads II, III, and aVF represent the inferior myocardial territory."
+      }
+    ]
+  },
+
+  {
+    id: 15,
+    title: "Final ECG Assessment",
+    duration: "40 min",
+    level: "Advanced",
+    content: `
+      <h2>Final ECG Assessment</h2>
+
+      <p>Congratulations on reaching the final lesson of ECG Academy!</p>
+
+      <p>This assessment reviews the essential concepts covered throughout the course, including ECG fundamentals, cardiac conduction, rhythm recognition, conduction blocks, and ischemic changes.</p>
+
+      <h3>Topics Covered</h3>
+      <ul>
+        <li>ECG fundamentals and cardiac electrophysiology.</li>
+        <li>ECG waves, segments, and intervals.</li>
+        <li>Heart rate and rhythm calculations.</li>
+        <li>Sinus and atrial arrhythmias.</li>
+        <li>Supraventricular and ventricular tachycardias.</li>
+        <li>AV blocks and bundle branch blocks.</li>
+        <li>12-lead ECG interpretation.</li>
+        <li>Myocardial ischemia and infarction.</li>
+        <li>Clinical ECG case analysis.</li>
+      </ul>
+
+      <h3>Assessment Instructions</h3>
+      <ol>
+        <li>Answer all assessment questions.</li>
+        <li>Choose the single best answer.</li>
+        <li>Review the explanations after completing the quiz.</li>
+        <li>Revisit any lesson where you need additional practice.</li>
+      </ol>
+
+      <h3>Important Reminder</h3>
+      <p>ECG interpretation is a clinical skill that improves with repeated practice, supervised learning, and correlation with patient presentations.</p>
+
+      <p>This educational assessment does not replace formal clinical training or professional medical judgment.</p>
+
+      <h3>Well Done!</h3>
+      <p>You have completed the ECG Academy educational curriculum. Continue practicing with real ECG tracings and clinical scenarios to strengthen your interpretation skills.</p>
+    `,
+    quiz: [
+      {
+        question: "What does the QRS complex represent?",
+        options: [
+          "Atrial depolarization",
+          "Ventricular depolarization",
+          "Ventricular repolarization",
+          "Atrial contraction"
+        ],
+        answer: 1,
+        explanation: "The QRS complex represents ventricular depolarization."
+      },
+      {
+        question: "What is the normal PR interval?",
+        options: ["60–100 ms", "120–200 ms", "220–300 ms", "300–400 ms"],
+        answer: 1,
+        explanation: "The normal PR interval is 120–200 milliseconds."
+      },
+      {
+        question: "Which rhythm is characterized by irregularly irregular R-R intervals?",
+        options: [
+          "Sinus rhythm",
+          "Atrial fibrillation",
+          "Junctional escape rhythm",
+          "Ventricular pacing"
+        ],
+        answer: 1,
+        explanation: "Atrial fibrillation typically produces an irregularly irregular ventricular rhythm."
+      },
+      {
+        question: "Which condition produces progressive PR prolongation followed by a dropped QRS?",
+        options: [
+          "Mobitz I",
+          "Mobitz II",
+          "First-degree AV block",
+          "Complete heart block"
+        ],
+        answer: 0,
+        explanation: "This is the characteristic pattern of Mobitz I (Wenckebach)."
+      },
+      {
+        question: "Which ECG finding is characteristic of complete RBBB?",
+        options: [
+          "Narrow QRS",
+          "rsR' pattern in V1",
+          "Short PR interval",
+          "Absent T waves"
+        ],
+        answer: 1,
+        explanation: "An rsR' pattern in V1–V2 with a wide QRS is characteristic of complete RBBB."
+      },
+      {
+        question: "Which rhythm is associated with prolonged QTc and twisting QRS morphology?",
+        options: [
+          "Atrial flutter",
+          "Torsades de pointes",
+          "Sinus tachycardia",
+          "First-degree AV block"
+        ],
+        answer: 1,
+        explanation: "Torsades de pointes is polymorphic ventricular tachycardia associated with prolonged QTc."
+      },
+      {
+        question: "Which leads represent the lateral myocardial wall?",
+        options: [
+          "II, III, aVF",
+          "I, aVL, V5, V6",
+          "V1 and V2",
+          "V3 and V4"
+        ],
+        answer: 1,
+        explanation: "The lateral leads are I, aVL, V5, and V6."
+      },
+      {
+        question: "Which rhythm requires immediate CPR and defibrillation when the patient is pulseless?",
+        options: [
+          "Atrial fibrillation",
+          "Sinus bradycardia",
+          "Ventricular fibrillation",
+          "First-degree AV block"
+        ],
+        answer: 2,
+        explanation: "Pulseless ventricular fibrillation requires immediate CPR and defibrillation."
+      },
+      {
+        question: "What does a P wave represent?",
+        options: [
+          "Atrial depolarization",
+          "Ventricular depolarization",
+          "Ventricular repolarization",
+          "AV nodal repolarization"
+        ],
+        answer: 0,
+        explanation: "The P wave represents atrial depolarization."
+      },
+      {
+        question: "What is the most important first step when evaluating an ECG in an acutely unwell patient?",
+        options: [
+          "Calculate the QT interval",
+          "Assess the patient and hemodynamic stability",
+          "Measure the P-wave duration",
+          "Identify the electrical axis"
+        ],
+        answer: 1,
+        explanation: "Clinical assessment and hemodynamic stability take priority over detailed ECG measurements."
+      }
+    ]
+  }
+];
