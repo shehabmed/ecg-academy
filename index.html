@@ -1,578 +1,222 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ECG Academy | Learn Every Heartbeat</title>
-<style>
-:root {
-  --navy:#10243b;
-  --teal:#0d9488;
-  --bg:#f3f7fa;
-  --white:#ffffff;
-  --muted:#64748b;
-}
-* {box-sizing:border-box}
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--navy);
-}
-header {
-  background:white;
-  padding:16px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #e2e8f0;
-  position:sticky;
-  top:0;
-  z-index:2;
-}
-.logo {font-size:21px;font-weight:800}
-.logo span {color:var(--teal)}
-button {
-  border:0;
-  border-radius:9px;
-  padding:12px 16px;
-  cursor:pointer;
-  font-weight:bold;
-}
-.lang,.secondary {
-  background:#e5f4f1;
-  color:#087f76;
-}
-.hero {
-  background:var(--navy);
-  color:white;
-  padding:45px 6%;
-}
-.hero p {
-  color:#d0deeb;
-  line-height:1.6;
-}
-main {
-  max-width:1100px;
-  margin:auto;
-  padding:25px 4%;
-}
-.layout {
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:22px;
-  align-items:start;
-}
-.panel,.lesson,.quiz {
-  background:white;
-  border:1px solid #e1e8ef;
-  border-radius:14px;
-  padding:20px;
-}
-.panel {
-  position:sticky;
-  top:85px;
-}
-.lesson-btn {
-  width:100%;
-  text-align:left;
-  margin:4px 0;
-  background:white;
-  color:var(--navy);
-  font-weight:normal;
-  line-height:1.4;
-}
-.lesson-btn.active,.lesson-btn:hover {
-  background:#e6f5f2;
-  color:#087f76;
-}
-.lesson h2 {font-size:27px}
-.lesson p {
-  line-height:1.75;
-  color:#40546a;
-}
-.lesson h3 {margin-top:25px}
-.diagram {
-  background:#102d43;
-  border-radius:12px;
-  padding:15px;
-  margin:20px 0;
-  color:#8de6d3;
-}
-.diagram svg {
-  width:100%;
-  height:125px;
-}
-.note {
-  background:#edf8f6;
-  border-left:4px solid var(--teal);
-  padding:13px;
-  border-radius:5px;
-  line-height:1.6;
-}
-.progress {
-  height:8px;
-  background:#e5eaf0;
-  border-radius:8px;
-  margin:12px 0;
-}
-.progress div {
-  height:100%;
-  background:var(--teal);
-  border-radius:8px;
-}
-.actions {
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:25px;
-}
-.primary {
-  background:var(--teal);
-  color:white;
-}
-.quiz {margin-top:25px}
-.option {
-  display:block;
-  width:100%;
-  text-align:left;
-  margin:10px 0;
-  background:#edf3f7;
-  color:var(--navy);
-}
-.option:hover {background:#d9efeb}
-#result {
-  font-weight:bold;
-  line-height:1.6;
-}
-footer {
-  background:var(--navy);
-  color:white;
-  padding:25px 6%;
-  line-height:1.6;
-}
-.small {
-  font-size:13px;
-  color:var(--muted);
-}
-@media(max-width:700px) {
-  .layout {grid-template-columns:1fr}
-  .panel {position:static}
-  .lesson h2 {font-size:23px}
-  .hero {padding:30px 6%}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">❤️ ECG <span>Academy</span></div>
-  <button class="lang"
-    onclick="toggleLanguage()"
-    id="languageButton">Русский</button>
-</header>
-
-<section class="hero">
-  <h1 id="heroTitle">ECG Fundamentals</h1>
-  <p id="heroText">
-    Module 01 · Learn ECG interpretation step by step.
-  </p>
-  <strong id="heroSub">
-    Your journey to understanding the heart starts here.
-  </strong>
-</section>
-
-<main>
-  <div class="layout">
-
-    <aside class="panel">
-      <h3 id="courseHeading">Your lessons</h3>
-      <div id="progressText">Lesson 1 of 10</div>
-
-      <div class="progress">
-        <div id="progressBar" style="width:10%"></div>
-      </div>
-
-      <div id="lessonList"></div>
-
-      <p class="small" id="courseNote">
-        Complete each lesson at your own pace.
-      </p>
-    </aside>
-
-    <section>
-      <article class="lesson">
-
-        <div class="small" id="lessonNumber">
-          LESSON 01
-        </div>
-
-        <h2 id="lessonTitle"></h2>
-
-        <div id="lessonContent"></div>
-
-        <div class="actions">
-          <button class="secondary"
-            onclick="move(-1)"
-            id="previous">← Previous</button>
-
-          <button class="primary"
-            onclick="move(1)"
-            id="next">Next lesson →</button>
-        </div>
-
-      </article>
-
-      <article class="quiz">
-        <h2 id="quizHeading">Knowledge check</h2>
-        <p id="quizIntro">Test what you have learned.</p>
-
-        <div id="question"></div>
-        <div id="options"></div>
-        <p id="result"></p>
-
-        <button class="primary"
-          onclick="nextQuestion()"
-          id="nextQuestion"
-          style="display:none">
-          Next question →
-        </button>
-      </article>
-    </section>
-
-  </div>
-</main>
-
-<footer>
-  <strong>ECG Academy</strong>
-
-  <p id="footerText">
-    Bilingual ECG education for medical students.
-  </p>
-
-  <p class="small">
-    Educational content only. Not a substitute for clinical
-    assessment, medical supervision or professional diagnosis.
-    Educational ECG examples should be reviewed by qualified
-    medical professionals.
-  </p>
-</footer>
-
-<script>
-
-</script>
-</body>
-</html>
-
 const lessons = [
-{
-title:["Introduction to ECG","Введение в ЭКГ"],
-body:[
-["An electrocardiogram (ECG) records the electrical activity of the heart over time.","Электрокардиограмма (ЭКГ) регистрирует электрическую активность сердца во времени."],
-["It helps assess heart rate, rhythm, conduction and electrical patterns.","Она помогает оценить частоту сердечных сокращений, ритм, проведение импульсов и электрические изменения."],
-["A standard 12-lead ECG provides information from different electrical viewing angles.","Стандартная ЭКГ в 12 отведениях показывает электрическую активность сердца с разных направлений."]
-]},
-{
-title:["How ECG Works","Как работает ЭКГ"],
-body:[
-["The electrical impulse normally starts in the sinoatrial (SA) node.","В норме электрический импульс начинается в синоатриальном узле."],
-["It travels through the atria, AV node and His-Purkinje system to activate the ventricles.","Он проходит через предсердия, AV-узел и систему Гиса — Пуркинье, активируя желудочки."],
-["Depolarization is electrical activation. Repolarization is electrical recovery.","Деполяризация — электрическая активация. Реполяризация — восстановление электрического состояния клеток."]
-]},
-{
-title:["The ECG Grid","Бумага и сетка ЭКГ"],
-body:[
-["At 25 mm/s, one small horizontal square represents 0.04 seconds.","При скорости 25 мм/с одна маленькая горизонтальная клетка соответствует 0,04 секунды."],
-["One large square represents 0.20 seconds.","Одна большая клетка соответствует 0,20 секунды."],
-["At standard calibration of 10 mm/mV, 10 mm vertically represents 1 millivolt.","При стандартной калибровке 10 мм/мВ вертикальные 10 мм соответствуют 1 милливольту."]
-]},
-{
-title:["The P Wave","Зубец P"],
-body:[
-["The P wave represents atrial depolarization.","Зубец P отражает деполяризацию предсердий."],
-["In sinus rhythm, a P wave usually precedes each QRS complex.","При синусовом ритме зубец P обычно предшествует каждому комплексу QRS."],
-["Its shape and direction depend on the ECG lead.","Его форма и направление зависят от отведения ЭКГ."]
-]},
-{
-title:["The PR Interval","Интервал PR"],
-body:[
-["The PR interval is measured from the beginning of the P wave to the beginning of the QRS complex.","Интервал PR измеряется от начала зубца P до начала комплекса QRS."],
-["A typical adult PR interval is 120–200 milliseconds.","Типичная продолжительность интервала PR у взрослых составляет 120–200 миллисекунд."],
-["It reflects conduction from the atria through the AV conduction system to the ventricles.","Он отражает проведение импульса от предсердий через AV-проводящую систему к желудочкам."]
-]},
-{
-title:["The QRS Complex","Комплекс QRS"],
-body:[
-["The QRS complex represents ventricular depolarization.","Комплекс QRS отражает деполяризацию желудочков."],
-["In adults, a QRS duration under 120 milliseconds is generally considered narrow.","У взрослых комплекс QRS длительностью менее 120 миллисекунд обычно считается узким."],
-["Q, R and S describe different electrical deflections.","Q, R и S обозначают различные электрические отклонения."]
-]},
-{
-title:["ST Segment and T Wave","Сегмент ST и зубец T"],
-body:[
-["The ST segment extends from the end of the QRS complex to the beginning of the T wave.","Сегмент ST начинается в конце комплекса QRS и заканчивается в начале зубца T."],
-["The T wave generally represents ventricular repolarization.","Зубец T обычно отражает реполяризацию желудочков."],
-["ST and T-wave abnormalities can have several causes and require clinical interpretation.","Изменения ST и зубца T могут иметь разные причины и требуют клинической интерпретации."]
-]},
-{
-title:["Calculating Heart Rate","Расчёт частоты сердечных сокращений"],
-body:[
-["For a regular rhythm at 25 mm/s, divide 300 by the number of large squares between consecutive R waves.","При регулярном ритме и скорости 25 мм/с разделите 300 на количество больших клеток между соседними зубцами R."],
-["For example, four large squares give approximately 75 beats per minute.","Например, четыре большие клетки соответствуют приблизительно 75 ударам в минуту."],
-["For irregular rhythms, assess several beats or use a longer rhythm strip.","При нерегулярном ритме оценивайте несколько циклов или используйте более длинную ритмограмму."]
-]},
-{
-title:["Heart Rhythm","Сердечный ритм"],
-body:[
-["Assess whether the rhythm is regular or irregular.","Оцените, является ли ритм регулярным или нерегулярным."],
-["Check for P waves and their relationship to QRS complexes.","Проверьте наличие зубцов P и их связь с комплексами QRS."],
-["A common adult resting heart-rate reference range is 60–100 beats per minute.","Обычный референсный диапазон частоты сердечных сокращений взрослого в покое составляет 60–100 ударов в минуту."]
-]},
-{
-title:["Systematic ECG Interpretation","Систематическая интерпретация ЭКГ"],
-body:[
-["Check patient details, calibration, heart rate and rhythm.","Проверьте данные пациента, калибровку, частоту сердечных сокращений и ритм."],
-["Assess the electrical axis, intervals, QRS morphology, ST segments and T waves.","Оцените электрическую ось, интервалы, форму QRS, сегменты ST и зубцы T."],
-["Always interpret ECG findings in the context of symptoms, medical history and clinical assessment.","Всегда интерпретируйте ЭКГ с учётом симптомов, анамнеза и клинического обследования."]
-]}
+  {
+    id: 1,
+    title: "Introduction to ECG",
+    duration: "20 min",
+    level: "Beginner",
+    content: `
+      <h2>Introduction to Electrocardiography</h2>
+      <p>An electrocardiogram (ECG or EKG) is a non-invasive test that records the electrical activity of the heart over time.</p>
+
+      <h3>Learning Objectives</h3>
+      <ul>
+        <li>Understand what an ECG measures.</li>
+        <li>Identify the basic components of an ECG tracing.</li>
+        <li>Understand the clinical importance of ECG interpretation.</li>
+      </ul>
+
+      <h3>What does an ECG measure?</h3>
+      <p>The ECG records electrical impulses generated by cardiac depolarization and repolarization. It does not directly measure the mechanical contraction of the heart.</p>
+
+      <h3>Clinical Uses</h3>
+      <ul>
+        <li>Detection of cardiac arrhythmias.</li>
+        <li>Evaluation of myocardial ischemia and infarction.</li>
+        <li>Detection of conduction abnormalities.</li>
+        <li>Assessment of electrolyte-related ECG changes.</li>
+      </ul>
+
+      <h3>Important Note</h3>
+      <p>An ECG must always be interpreted alongside the patient's symptoms, clinical examination, and medical history.</p>
+    `,
+    quiz: [
+      {
+        question: "What does an ECG primarily record?",
+        options: [
+          "Mechanical heart contraction",
+          "Electrical activity of the heart",
+          "Blood pressure",
+          "Blood oxygen level"
+        ],
+        answer: 1,
+        explanation: "An ECG records the electrical activity of the heart."
+      },
+      {
+        question: "Which condition can an ECG help identify?",
+        options: [
+          "Cardiac arrhythmias",
+          "Kidney stones",
+          "Pneumonia",
+          "Bone fractures"
+        ],
+        answer: 0,
+        explanation: "ECG recordings are essential in identifying cardiac rhythm abnormalities."
+      }
+    ]
+  },
+
+  {
+    id: 2,
+    title: "Cardiac Anatomy and Electrical Conduction",
+    duration: "25 min",
+    level: "Beginner",
+    content: `
+      <h2>Cardiac Anatomy and Electrical Conduction</h2>
+
+      <p>The heart contains four chambers: two atria and two ventricles.</p>
+
+      <h3>The Cardiac Conduction System</h3>
+      <ol>
+        <li><strong>SA Node:</strong> The normal primary pacemaker of the heart.</li>
+        <li><strong>AV Node:</strong> Delays electrical conduction before ventricular activation.</li>
+        <li><strong>Bundle of His:</strong> Conducts impulses into the ventricular conduction system.</li>
+        <li><strong>Right and Left Bundle Branches:</strong> Carry impulses toward the ventricles.</li>
+        <li><strong>Purkinje Fibers:</strong> Distribute impulses throughout ventricular myocardium.</li>
+      </ol>
+
+      <h3>Normal Electrical Sequence</h3>
+      <p>SA node → Atrial myocardium → AV node → Bundle of His → Bundle branches → Purkinje fibers.</p>
+
+      <h3>Clinical Significance</h3>
+      <p>Abnormalities in any part of the conduction system may produce characteristic ECG changes, including bradycardia, heart block, and bundle branch block.</p>
+    `,
+    quiz: [
+      {
+        question: "Where does normal cardiac electrical activity usually begin?",
+        options: ["AV node", "SA node", "Bundle of His", "Purkinje fibers"],
+        answer: 1,
+        explanation: "The sinoatrial node is the normal primary pacemaker."
+      },
+      {
+        question: "What is the main function of the AV node?",
+        options: [
+          "Pump blood",
+          "Delay electrical conduction",
+          "Produce oxygen",
+          "Contract the ventricles directly"
+        ],
+        answer: 1,
+        explanation: "The AV node provides a physiological delay before ventricular activation."
+      }
+    ]
+  },
+
+  {
+    id: 3,
+    title: "ECG Waves, Segments and Intervals",
+    duration: "30 min",
+    level: "Beginner",
+    content: `
+      <h2>ECG Waves, Segments and Intervals</h2>
+
+      <h3>P Wave</h3>
+      <p>Represents atrial depolarization.</p>
+
+      <h3>PR Interval</h3>
+      <p>Represents conduction from the beginning of atrial depolarization to the beginning of ventricular depolarization. Normal duration: 120–200 ms.</p>
+
+      <h3>QRS Complex</h3>
+      <p>Represents ventricular depolarization. Normal duration is generally less than 120 ms.</p>
+
+      <h3>ST Segment</h3>
+      <p>Extends from the end of the QRS complex to the beginning of the T wave. ST elevation or depression may indicate myocardial injury or ischemia in the appropriate clinical context.</p>
+
+      <h3>T Wave</h3>
+      <p>Represents ventricular repolarization.</p>
+
+      <h3>QT Interval</h3>
+      <p>Represents the duration of ventricular depolarization and repolarization. QT interpretation should account for heart rate using QT correction (QTc).</p>
+    `,
+    quiz: [
+      {
+        question: "What does the P wave represent?",
+        options: [
+          "Ventricular depolarization",
+          "Atrial depolarization",
+          "Ventricular repolarization",
+          "Atrial repolarization only"
+        ],
+        answer: 1,
+        explanation: "The P wave represents atrial depolarization."
+      },
+      {
+        question: "What is the usual normal PR interval?",
+        options: ["40–80 ms", "120–200 ms", "220–300 ms", "300–400 ms"],
+        answer: 1,
+        explanation: "The normal PR interval is 120–200 milliseconds."
+      }
+    ]
+  },
+
+  {
+    id: 4,
+    title: "Heart Rate and Rhythm Analysis",
+    duration: "25 min",
+    level: "Beginner",
+    content: `
+      <h2>Heart Rate and Rhythm Analysis</h2>
+
+      <h3>Calculating Heart Rate</h3>
+      <p>For a regular rhythm using standard paper speed of 25 mm/s:</p>
+      <p><strong>Heart Rate = 300 ÷ Number of large squares between R waves.</strong></p>
+
+      <h3>Example</h3>
+      <p>If there are 4 large squares between two consecutive R waves:</p>
+      <p>Heart Rate = 300 ÷ 4 = 75 beats/min.</p>
+
+      <h3>Irregular Rhythms</h3>
+      <p>For a 10-second ECG strip, count the QRS complexes and multiply by 6 to estimate the ventricular rate.</p>
+
+      <h3>Rhythm Assessment</h3>
+      <ul>
+        <li>Is the rhythm regular or irregular?</li>
+        <li>Are P waves present?</li>
+        <li>Does every P wave precede a QRS complex?</li>
+        <li>Is the PR interval constant?</li>
+        <li>Is the QRS duration normal?</li>
+      </ul>
+    `,
+    quiz: [
+      {
+        question: "What is the heart rate if there are 5 large squares between R waves?",
+        options: ["50 bpm", "60 bpm", "75 bpm", "100 bpm"],
+        answer: 1,
+        explanation: "300 divided by 5 equals 60 beats per minute."
+      }
+    ]
+  },
+
+  {
+    id: 5,
+    title: "Normal Sinus Rhythm",
+    duration: "20 min",
+    level: "Beginner",
+    content: `
+      <h2>Normal Sinus Rhythm</h2>
+
+      <p>Normal sinus rhythm originates from the sinoatrial node and follows the normal cardiac conduction pathway.</p>
+
+      <h3>ECG Characteristics</h3>
+      <ul>
+        <li>Heart rate: 60–100 bpm in adults.</li>
+        <li>Regular rhythm.</li>
+        <li>Normal P wave morphology and axis.</li>
+        <li>One P wave before each QRS complex.</li>
+        <li>PR interval: 120–200 ms.</li>
+        <li>QRS duration: usually less than 120 ms.</li>
+      </ul>
+
+      <h3>Clinical Interpretation</h3>
+      <p>Normal sinus rhythm indicates sinus node activation with normal conduction, but does not exclude underlying cardiac disease.</p>
+    `,
+    quiz: [
+      {
+        question: "What is the typical adult heart rate range for normal sinus rhythm?",
+        options: ["30–50 bpm", "60–100 bpm", "100–150 bpm", "150–200 bpm"],
+        answer: 1,
+        explanation: "Normal adult sinus rhythm is generally 60–100 beats per minute."
+      }
+    ]
+  }
 ];
-
-const questions = [
-{
-q:["What does an ECG record?","Что регистрирует ЭКГ?"],
-a:[["Mechanical pumping","Механическую работу"],["Electrical activity","Электрическую активность"],["Blood pressure","Артериальное давление"]],
-correct:1,
-why:["An ECG records electrical activity.","ЭКГ регистрирует электрическую активность."]
-},
-{
-q:["Where does a normal sinus impulse begin?","Где начинается нормальный синусовый импульс?"],
-a:[["SA node","Синоатриальный узел"],["AV node","Атриовентрикулярный узел"],["Left ventricle","Левый желудочек"]],
-correct:0,
-why:["The impulse normally begins in the SA node.","Импульс обычно начинается в синоатриальном узле."]
-},
-{
-q:["At 25 mm/s, one small square represents:","При скорости 25 мм/с одна маленькая клетка соответствует:"],
-a:[["0.20 seconds","0,20 секунды"],["0.04 seconds","0,04 секунды"],["1 second","1 секунде"]],
-correct:1,
-why:["One small square represents 0.04 seconds.","Одна маленькая клетка соответствует 0,04 секунды."]
-},
-{
-q:["What does the P wave represent?","Что отражает зубец P?"],
-a:[["Atrial depolarization","Деполяризацию предсердий"],["Ventricular depolarization","Деполяризацию желудочков"],["Ventricular repolarization","Реполяризацию желудочков"]],
-correct:0,
-why:["The P wave represents atrial depolarization.","Зубец P отражает деполяризацию предсердий."]
-},
-{
-q:["What does the PR interval assess?","Что оценивает интервал PR?"],
-a:[["Atrial-to-ventricular conduction","Проведение от предсердий к желудочкам"],["Ventricular recovery","Восстановление желудочков"],["Heart size","Размер сердца"]],
-correct:0,
-why:["It reflects conduction through the AV system.","Он отражает проведение через AV-систему."]
-},
-{
-q:["What does the QRS complex represent?","Что отражает комплекс QRS?"],
-a:[["Atrial depolarization","Деполяризацию предсердий"],["Ventricular depolarization","Деполяризацию желудочков"],["Atrial repolarization","Реполяризацию предсердий"]],
-correct:1,
-why:["QRS represents ventricular depolarization.","QRS отражает деполяризацию желудочков."]
-},
-{
-q:["What does the T wave generally represent?","Что обычно отражает зубец T?"],
-a:[["Ventricular repolarization","Реполяризацию желудочков"],["Atrial depolarization","Деполяризацию предсердий"],["AV conduction","AV-проведение"]],
-correct:0,
-why:["The T wave generally represents ventricular repolarization.","Зубец T обычно отражает реполяризацию желудочков."]
-},
-{
-q:["Four large squares between R waves give approximately:","Четыре большие клетки между зубцами R дают приблизительно:"],
-a:[["50 bpm","50 уд/мин"],["75 bpm","75 уд/мин"],["150 bpm","150 уд/мин"]],
-correct:1,
-why:["300 divided by 4 equals 75 bpm.","300 разделить на 4 равно 75 уд/мин."]
-},
-{
-q:["A common adult resting heart-rate range is:","Обычный диапазон ЧСС взрослого в покое:"],
-a:[["20–40 bpm","20–40 уд/мин"],["60–100 bpm","60–100 уд/мин"],["120–160 bpm","120–160 уд/мин"]],
-correct:1,
-why:["The common reference range is 60–100 bpm.","Обычный референсный диапазон — 60–100 уд/мин."]
-},
-{
-q:["What is the best ECG learning approach?","Какой подход к изучению ЭКГ лучший?"],
-a:[["Look at one wave only","Оценивать только один зубец"],["Use a systematic approach","Использовать систематический подход"],["Ignore calibration","Игнорировать калибровку"]],
-correct:1,
-why:["A systematic approach reduces the risk of missing findings.","Систематический подход снижает риск пропустить изменения."]
-}
-];
-
-let lang = "en";
-let current = 0;
-let qi = 0;
-let score = 0;
-let answered = false;
-
-function toggleLanguage() {
- lang = lang === "en" ? "ru" : "en";
- render();
-}
-
-function render() {
- const ru = lang === "ru";
- document.documentElement.lang = lang;
-
- const labels = {
- languageButton: ru ? "English" : "Русский",
- heroTitle: ru ? "Основы ЭКГ" : "ECG Fundamentals",
- heroText: ru ? "Модуль 01 · Изучайте интерпретацию ЭКГ шаг за шагом." : "Module 01 · Learn ECG interpretation step by step.",
- heroSub: ru ? "Ваш путь к пониманию сердца начинается здесь." : "Your journey to understanding the heart starts here.",
- courseHeading: ru ? "Ваши уроки" : "Your lessons",
- courseNote: ru ? "Проходите уроки в удобном темпе." : "Complete each lesson at your own pace.",
- quizHeading: ru ? "Проверьте знания" : "Knowledge check",
- quizIntro: ru ? "Проверьте, что вы узнали." : "Test what you have learned.",
- footerText: ru ? "Двуязычное обучение ЭКГ для студентов-медиков." : "Bilingual ECG education for medical students.",
- previous: ru ? "← Назад" : "← Previous"
- };
-
- Object.keys(labels).forEach(id => {
-  document.getElementById(id).textContent = labels[id];
- });
-
- document.getElementById("lessonNumber").textContent =
- (ru ? "УРОК " : "LESSON ") + String(current + 1).padStart(2,"0");
-
- document.getElementById("lessonTitle").textContent =
- lessons[current].title[ru ? 1 : 0];
-
- document.getElementById("progressText").textContent =
- ru ? `Урок ${current+1} из 10` : `Lesson ${current+1} of 10`;
-
- document.getElementById("progressBar").style.width =
- ((current+1)*10) + "%";
-
- document.getElementById("lessonList").innerHTML =
- lessons.map((lesson,i) =>
- `<button class="lesson-btn ${i===current ? "active" : ""}"
- onclick="selectLesson(${i})">
- ${String(i+1).padStart(2,"0")}. ${lesson.title[ru?1:0]}
- </button>`
- ).join("");
-
- const diagram = `
- <div class="diagram">
- <strong>${ru ? "Схема ЭКГ" : "ECG waveform illustration"}</strong>
- <svg viewBox="0 0 720 130" preserveAspectRatio="none">
- <defs>
- <pattern id="ecggrid" width="20" height="20" patternUnits="userSpaceOnUse">
- <path d="M20 0H0V20" fill="none" stroke="#38566b"/>
- </pattern>
- </defs>
- <rect width="720" height="130" fill="url(#ecggrid)"/>
- <path d="M0 75 L65 75 Q85 75 95 55 Q108 35 120 75 L175 75 L190 90 L205 15 L225 112 L245 75 L325 75 Q360 75 380 50 Q395 30 410 75 L465 75 L480 90 L495 15 L515 112 L535 75 L620 75 Q650 75 670 55 Q685 42 700 75 L720 75"
- fill="none" stroke="#65e6c9" stroke-width="3"/>
- </svg>
- <small>${ru ? "Условная учебная схема, не для диагностики." : "Schematic teaching illustration, not for diagnosis."}</small>
- </div>`;
-
- const explanations = lessons[current].body.map((p,i) =>
- `<h3>${ru ? "Объяснение " : "Explanation "}${i+1}</h3>
- <p>${p[ru?1:0]}</p>`
- ).join("");
-
- document.getElementById("lessonContent").innerHTML =
- diagram + explanations +
- `<div class="note"><strong>${ru?"Важно: ":"Important: "}</strong>
- ${ru ? "Учебный материал. Клиническую ЭКГ необходимо оценивать с учётом симптомов и под руководством квалифицированного специалиста." : "Educational material. Clinical ECGs must be interpreted in context and with qualified supervision."}
- </div>`;
-
- document.getElementById("previous").disabled = current === 0;
-
- document.getElementById("next").textContent =
- current === 9
- ? (ru ? "К началу курса ↺" : "Back to beginning ↺")
- : (ru ? "Следующий урок →" : "Next lesson →");
-
- renderQuestion();
-}
-
-function selectLesson(i) {
- current = i;
- render();
- window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function move(d) {
- current = (current + d + 10) % 10;
- render();
- window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function renderQuestion() {
- const q = questions[qi];
- const ru = lang === "ru";
-
- document.getElementById("question").innerHTML =
- `<strong>${ru?"Вопрос":"Question"} ${qi+1}/10:</strong>
- <p>${q.q[ru?1:0]}</p>`;
-
- document.getElementById("options").innerHTML =
- q.a.map((a,i) =>
- `<button class="option" onclick="checkAnswer(${i})">
- ${String.fromCharCode(65+i)}. ${a[ru?1:0]}
- </button>`
- ).join("");
-
- document.getElementById("result").textContent = "";
- document.getElementById("nextQuestion").style.display = "none";
- answered = false;
-}
-
-function checkAnswer(i) {
- if(answered) return;
-
- answered = true;
- const q = questions[qi];
- const ru = lang === "ru";
- const correct = i === q.correct;
-
- if(correct) score++;
-
- document.querySelectorAll(".option").forEach((b,j) => {
-  b.disabled = true;
-  if(j === q.correct) b.style.background = "#d4f3e5";
-  else if(j === i) b.style.background = "#ffe3df";
- });
-
- document.getElementById("result").textContent =
- (correct ? (ru?"Правильно! ":"Correct! ") :
- (ru?"Неверно. ":"Incorrect. ")) + q.why[ru?1:0];
-
- document.getElementById("nextQuestion").style.display = "inline-block";
-
- document.getElementById("nextQuestion").textContent =
- qi === 9
- ? (ru ? "Посмотреть результат" : "See results")
- : (ru ? "Следующий вопрос →" : "Next question →");
-}
-
-function nextQuestion() {
- if(!answered) return;
-
- if(qi === 9) {
-  document.getElementById("question").textContent =
-  lang === "ru" ? `Ваш результат: ${score} из 10` :
-  `Your score: ${score} out of 10`;
-
-  document.getElementById("options").innerHTML = "";
-  document.getElementById("result").textContent =
-  lang === "ru" ? "Повторите вопросы для закрепления знаний." :
-  "Review the questions to reinforce your knowledge.";
-
-  document.getElementById("nextQuestion").style.display = "none";
-  return;
- }
-
- qi++;
- renderQuestion();
-}
-
-render();
-</script>
-</body>
-</html>
