@@ -1,4 +1,27 @@
- {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101d35">
+<title>ECG Academy — Learn to read the heart</title>
+<style>
+:root{--navy:#101d35;--navy2:#172744;--ink:#17243b;--muted:#718096;--line:#e7edf4;--bg:#f5f7fb;--white:#fff;--teal:#18b6a4;--blue:#4b7bec;--purple:#8b6be8;--orange:#f0a44b;--red:#e76c75;--shadow:0 12px 35px rgba(25,42,70,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:252px minmax(0,1fr)}.sidebar{background:var(--navy);color:#dbe5f3;padding:27px 18px;display:flex;flex-direction:column;gap:30px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:12px;padding:0 9px}.brand-mark{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,#1bc6b0,#4b7bec);display:grid;place-items:center;color:white;font-size:22px;font-weight:800}.brand strong{display:block;color:#fff;font-size:16px;letter-spacing:.2px}.brand small{color:#8fa2bd;font-size:11px;letter-spacing:1.5px;text-transform:uppercase}.nav-label{color:#7185a4;font-size:10px;font-weight:800;letter-spacing:1.6px;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#aebdd2;text-align:left;padding:12px 13px;border-radius:10px;display:flex;align-items:center;gap:12px;font-size:13px}.nav button.active,.nav button:hover{background:#223654;color:white}.nav .ico{font-size:17px;width:19px;text-align:center}.side-bottom{margin-top:auto;background:#1a2c49;border:1px solid #2a3d5b;padding:16px;border-radius:14px}.side-bottom b{font-size:12px;color:white}.side-bottom p{font-size:11px;line-height:1.55;color:#9aacc5;margin:7px 0 12px}.side-bottom button{border:0;background:#20b7a6;color:#062b35;border-radius:8px;padding:9px 12px;font-weight:800;font-size:11px;width:100%}
+.main{min-width:0}.topbar{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 42px;position:sticky;top:0;z-index:5}.crumb{font-size:12px;color:#8794a8}.crumb b{color:#253650}.top-actions{display:flex;align-items:center;gap:14px}.search{position:relative}.search input{width:230px;border:1px solid var(--line);border-radius:9px;padding:10px 12px 10px 35px;background:#fafbfd;font-size:12px;outline:none}.search span{position:absolute;left:12px;top:8px;color:#8794a8}.avatar{width:34px;height:34px;border-radius:50%;background:#e2f6f3;color:#138f83;display:grid;place-items:center;font-weight:800;font-size:12px}.content{max-width:1440px;margin:auto;padding:34px 42px 60px}.welcome{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:25px}.eyebrow{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#16a897}.welcome h1{font-size:29px;letter-spacing:-.8px;margin:7px 0 6px;color:#172943}.welcome p{margin:0;color:#77859a;font-size:13px}.date-pill{font-size:11px;color:#63748b;background:#fff;border:1px solid var(--line);padding:9px 12px;border-radius:20px}
+.hero{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(112deg,#142945 0%,#1b4160 55%,#176b70 100%);color:white;padding:29px 32px;min-height:205px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:320px;height:320px;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:12%;top:-180px;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 75px rgba(255,255,255,.02)}.hero-copy{position:relative;z-index:1;max-width:520px}.hero .tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#7de1d2;font-weight:800}.hero h2{font-size:25px;line-height:1.2;margin:11px 0 9px;letter-spacing:-.5px}.hero p{font-size:12px;line-height:1.65;color:#c4d5e5;max-width:430px;margin:0 0 17px}.primary{border:0;background:#25c3b0;color:#07323a;padding:11px 16px;border-radius:8px;font-size:11px;font-weight:800}.hero-art{width:36%;max-width:330px;min-width:190px;position:relative;z-index:1}.hero-art svg{width:100%;filter:drop-shadow(0 8px 15px rgba(0,0,0,.16))}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0 29px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 18px;display:flex;align-items:center;gap:13px}.stat-icon{width:37px;height:37px;border-radius:11px;display:grid;place-items:center;font-size:17px;background:#e8f8f5}.stat:nth-child(2) .stat-icon{background:#edf2ff}.stat:nth-child(3) .stat-icon{background:#fff4e8}.stat:nth-child(4) .stat-icon{background:#f2edff}.stat strong{font-size:20px;display:block;line-height:1.2}.stat small{font-size:10px;color:#8794a8}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:27px 0 14px}.section-head h2{font-size:17px;margin:0;letter-spacing:-.3px}.section-head p{font-size:11px;color:#8794a8;margin:4px 0 0}.text-btn{border:0;background:none;color:#159e91;font-size:11px;font-weight:800}.continue{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;display:grid;grid-template-columns:115px 1fr auto;gap:17px;align-items:center;box-shadow:0 3px 14px rgba(20,40,70,.025)}.continue-art{height:80px;border-radius:10px;background:linear-gradient(135deg,#dff8f2,#e7efff);display:grid;place-items:center;overflow:hidden}.continue-art svg{width:100%}.continue h3{font-size:13px;margin:0 0 5px}.continue p{font-size:11px;color:#7b899d;margin:0 0 9px}.progress{height:5px;border-radius:9px;background:#edf1f6;overflow:hidden;max-width:360px}.progress i{display:block;height:100%;background:var(--teal);border-radius:9px}.continue .meta{font-size:10px;color:#91a0b3;margin-top:6px}.continue button{border:0;border-radius:8px;background:#e8f8f5;color:#108f82;padding:10px 13px;font-size:11px;font-weight:800}
+.filters{display:flex;gap:7px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:white;border-radius:20px;padding:7px 12px;color:#77859a;font-size:10px}.filter.active{background:#172b49;color:white;border-color:#172b49}.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.lesson-card{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s;cursor:pointer;min-width:0}.lesson-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d5e3ed}.thumb{height:128px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}.thumb svg{width:100%;height:100%;position:absolute;inset:0}.lesson-number{position:absolute;left:13px;top:12px;background:rgba(255,255,255,.86);backdrop-filter:blur(5px);border-radius:7px;padding:5px 8px;font-size:9px;font-weight:900;color:#30445f}.done-mark{position:absolute;right:12px;top:12px;background:#16b59f;color:white;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;font-size:12px}.card-body{padding:14px}.card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.level{font-size:9px;text-transform:uppercase;letter-spacing:.8px;font-weight:900;color:#168e83}.duration{font-size:10px;color:#92a0b2}.lesson-card h3{font-size:13px;line-height:1.4;margin:0 0 12px;min-height:36px}.card-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #f0f3f7;padding-top:10px;color:#8794a8;font-size:10px}.card-bottom b{color:#199e91;font-size:10px}
+.page-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}.back{border:1px solid var(--line);background:#fff;width:35px;height:35px;border-radius:9px;color:#52657e}.page-title h1{font-size:23px;margin:0}.page-title p{font-size:11px;color:#8794a8;margin:4px 0 0}.lesson-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:20px;align-items:start}.lesson-main,.lesson-aside{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}.lesson-visual{height:170px;border-radius:11px;margin-bottom:23px;overflow:hidden;background:linear-gradient(120deg,#e1f7f2,#e8efff)}.lesson-visual svg{width:100%;height:100%}.lesson-main h2{font-size:20px;margin:10px 0}.lesson-main h3{font-size:15px;margin:25px 0 9px;color:#1d3857}.lesson-main h4{font-size:13px;margin:20px 0 7px}.lesson-main p,.lesson-main li{font-size:13px;line-height:1.8;color:#53647b}.lesson-main ul,.lesson-main ol{padding-left:22px}.lesson-aside h3{font-size:13px;margin:0 0 13px}.aside-item{padding:10px 0;border-bottom:1px solid #f0f2f6;font-size:11px;color:#6d7e93;display:flex;justify-content:space-between;gap:10px}.aside-item b{color:#233852}.quiz-box{margin-top:20px;background:#f7fafc;border:1px solid var(--line);border-radius:12px;padding:19px}.quiz-box h3{margin:0 0 5px}.quiz-box .sub{font-size:11px;color:#8794a8;margin:0 0 16px}.question{padding:14px;background:#fff;border:1px solid var(--line);border-radius:10px;margin:10px 0}.question strong{font-size:12px;line-height:1.5;display:block;margin-bottom:10px}.option{display:flex;gap:9px;align-items:flex-start;padding:8px 9px;border-radius:7px;font-size:11px;color:#53647b;cursor:pointer}.option:hover{background:#f3f7fa}.option input{accent-color:#16a997;margin-top:1px}.feedback{font-size:11px;margin-top:8px;padding:9px;border-radius:7px;display:none}.feedback.correct{display:block;background:#e8f8f1;color:#16815f}.feedback.wrong{display:block;background:#fff0ef;color:#b74e50}.quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.quiz-result{font-size:12px;font-weight:800;color:#188e82}.empty{padding:45px;text-align:center;color:#8794a8;background:white;border:1px dashed #dbe3ec;border-radius:14px;grid-column:1/-1}
+.footer{text-align:center;color:#9aa6b7;font-size:10px;padding:35px 0 5px}.hidden{display:none!important}
+@media(max-width:1050px){.app{grid-template-columns:210px 1fr}.content{padding:28px 25px}.topbar{padding:0 25px}.lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.app{display:block}.sidebar{height:auto;position:relative;padding:13px 15px;display:flex;flex-direction:row;align-items:center;justify-content:space-between}.brand{padding:0}.nav-label,.nav,.side-bottom{display:none}.topbar{height:58px;padding:0 16px}.search input{width:150px}.content{padding:23px 15px 40px}.welcome{align-items:flex-start}.welcome h1{font-size:23px}.date-pill{display:none}.hero{padding:23px;min-height:190px}.hero h2{font-size:21px}.hero-art{min-width:115px;width:30%}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:17px}.lesson-grid{grid-template-columns:1fr}.thumb{height:145px}.continue{grid-template-columns:75px 1fr;gap:12px}.continue-art{height:70px}.continue>button{grid-column:1/-1}.lesson-layout{grid-template-columns:1fr}.lesson-aside{order:-1}.lesson-main,.lesson-aside{padding:17px}.filters{margin-top:10px}}
+</style>
+</head>
+<body>
+<script>
+const lessons = [{
     id: 1,
     title: "Introduction to ECG",
     duration: "20 min",
@@ -1069,4 +1092,122 @@
       }
     ]
   }
-];
+];;
+</script>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">♡</div><div><strong>ECG Academy</strong><small>Clinical learning</small></div></div>
+  <div><div class="nav-label">LEARNING</div><nav class="nav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span> Dashboard</button>
+    <button data-page="courses"><span class="ico">▤</span> All lessons</button>
+    <button data-page="progress"><span class="ico">◷</span> My progress</button>
+  </nav></div>
+  <div class="side-bottom"><b>Keep your rhythm</b><p>Small, consistent practice builds confident ECG interpretation.</p><button id="sideContinue">Continue learning →</button></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="crumb"><b>ECG Academy</b> &nbsp;/&nbsp; <span id="crumb">Dashboard</span></div><div class="top-actions"><div class="search"><span>⌕</span><input id="search" placeholder="Search lessons..." aria-label="Search lessons"></div><div class="avatar">EA</div></div></header>
+<div class="content">
+<section id="dashboardPage">
+  <div class="welcome"><div><div class="eyebrow">YOUR LEARNING SPACE</div><h1>Welcome to ECG Academy</h1><p>Build your ECG interpretation skills, one heartbeat at a time.</p></div><div class="date-pill">✦ &nbsp; 15-lesson curriculum</div></div>
+  <div class="hero"><div class="hero-copy"><div class="tag">ECG learning pathway</div><h2>Understand the rhythm.<br>Read the heart.</h2><p>A structured course from ECG fundamentals to advanced interpretation and clinical case studies.</p><button class="primary" id="heroContinue">Start learning &nbsp; →</button></div><div class="hero-art">
+  <svg viewBox="0 0 330 155" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 80H60L78 80L91 42L111 123L131 18L151 80H184L199 61L212 80H330" stroke="#7CE5D5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 80H330" stroke="white" stroke-opacity=".14" stroke-dasharray="4 7"/><circle cx="131" cy="18" r="5" fill="#fff"/><circle cx="131" cy="18" r="12" stroke="#fff" stroke-opacity=".35"/></svg></div></div>
+  <div class="stats">
+    <div class="stat"><div class="stat-icon">▤</div><div><strong>15</strong><small>Course lessons</small></div></div>
+    <div class="stat"><div class="stat-icon">✓</div><div><strong id="completedStat">0</strong><small>Lessons completed</small></div></div>
+    <div class="stat"><div class="stat-icon">◷</div><div><strong id="minutesStat">0%</strong><small>Course progress</small></div></div>
+    <div class="stat"><div class="stat-icon">✧</div><div><strong>3</strong><small>Learning levels</small></div></div>
+  </div>
+  <div class="section-head"><div><h2>Pick up where you left off</h2><p>Your next step in the learning pathway</p></div></div>
+  <div class="continue"><div class="continue-art" id="continueArt"></div><div><h3 id="continueTitle">Introduction to ECG</h3><p id="continueDesc">Start with the foundations of electrocardiography.</p><div class="progress"><i id="overallBar" style="width:0%"></i></div><div class="meta" id="overallMeta">0 of 15 lessons completed</div></div><button id="continueBtn">Open lesson →</button></div>
+  <div class="section-head"><div><h2>Explore the curriculum</h2><p>15 lessons · Beginner to advanced</p></div><button class="text-btn" data-goto="courses">View all lessons →</button></div>
+  <div class="lesson-grid" id="featuredGrid"></div>
+</section>
+<section id="coursesPage" class="hidden">
+  <div class="welcome"><div><div class="eyebrow">THE CURRICULUM</div><h1>All lessons</h1><p>Follow the learning pathway or jump to a topic you want to practice.</p></div></div>
+  <div class="section-head"><div><h2>Course library</h2><p id="courseCount">15 lessons available</p></div><div class="filters" id="filters"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Beginner">Beginner</button><button class="filter" data-filter="Intermediate">Intermediate</button><button class="filter" data-filter="Advanced">Advanced</button></div></div>
+  <div class="lesson-grid" id="allGrid"></div>
+</section>
+<section id="progressPage" class="hidden">
+  <div class="welcome"><div><div class="eyebrow">YOUR ACHIEVEMENTS</div><h1>My progress</h1><p>Your learning progress is saved on this device.</p></div></div>
+  <div class="stats"><div class="stat"><div class="stat-icon">✓</div><div><strong id="progressDone">0</strong><small>Completed lessons</small></div></div><div class="stat"><div class="stat-icon">◷</div><div><strong id="progressPercent">0%</strong><small>Course completion</small></div></div><div class="stat"><div class="stat-icon">▤</div><div><strong>15</strong><small>Total lessons</small></div></div><div class="stat"><div class="stat-icon">✧</div><div><strong id="quizScore">—</strong><small>Latest quiz score</small></div></div></div>
+  <div class="section-head"><div><h2>Learning pathway</h2><p>Mark lessons complete as you work through them.</p></div></div><div class="lesson-grid" id="progressGrid"></div>
+</section>
+<section id="lessonPage" class="hidden">
+  <div class="page-title"><button class="back" id="backBtn">←</button><div><h1 id="lessonHeading">Lesson</h1><p id="lessonSub">Lesson content</p></div></div>
+  <div class="lesson-layout"><article class="lesson-main"><div class="lesson-visual" id="lessonVisual"></div><div id="lessonContent"></div><div class="quiz-box" id="quizBox"><h3>Check your understanding</h3><p class="sub">Answer the questions below to reinforce what you've learned.</p><div id="quizQuestions"></div><div class="quiz-actions"><span class="quiz-result" id="quizResult"></span><button class="primary" id="submitQuiz">Check answers</button></div></div><div class="quiz-actions" style="margin-top:18px"><button class="text-btn" id="prevLesson">← Previous lesson</button><button class="primary" id="completeLesson">Mark as complete ✓</button><button class="text-btn" id="nextLesson">Next lesson →</button></div></article>
+  <aside class="lesson-aside"><h3>Lesson overview</h3><div class="aside-item"><span>Level</span><b id="asideLevel"></b></div><div class="aside-item"><span>Duration</span><b id="asideDuration"></b></div><div class="aside-item"><span>Lesson</span><b id="asideNumber"></b></div><div class="aside-item"><span>Quiz questions</span><b id="asideQuiz"></b></div><h3 style="margin-top:23px">Your pathway</h3><div id="pathway"></div></aside></div>
+</section>
+<div class="footer">ECG Academy · An educational resource for learning ECG interpretation. Not a substitute for clinical training or medical judgment.</div>
+</div></main></div>
+<script>
+const completed = new Set(JSON.parse(localStorage.getItem('ecg-completed') || '[]'));
+let currentLesson = null, activeFilter = 'All', latestScore = null;
+const $ = id => document.getElementById(id);
+function save(){localStorage.setItem('ecg-completed',JSON.stringify([...completed]));}
+function visualSVG(id,large=false){
+ const colors=[['#dff8f2','#dff0ff','#16a997'],['#e8efff','#e5f6f3','#527be5'],['#f2eaff','#e9f2ff','#8969df'],['#fff0df','#ffe9ed','#dc9143'],['#e1f4f5','#e8efff','#299da9']];
+ const c=colors[(id-1)%colors.length],w=large?900:420,h=large?170:128;
+ const paths=[
+ 'M0 65 L70 65 L87 65 L101 34 L119 98 L137 13 L155 65 L205 65 L220 51 L236 65 L420 65',
+ 'M0 65 L80 65 L95 43 L110 65 L130 65 L143 22 L159 96 L175 65 L220 65 L235 38 L250 65 L420 65',
+ 'M0 65 L65 65 L82 56 L98 65 L112 30 L129 92 L145 65 L190 65 L206 48 L220 65 L260 65 L278 30 L295 95 L312 65 L420 65',
+ 'M0 65 L75 65 L90 40 L105 65 L130 65 L145 12 L160 104 L176 65 L230 65 L246 44 L260 65 L420 65',
+ 'M0 65 L55 65 L72 65 L88 36 L105 65 L124 18 L142 98 L160 65 L190 65 L205 52 L220 65 L270 65 L285 34 L300 65 L420 65'
+ ];
+ let path=paths[(id-1)%paths.length];
+ return `<svg viewBox="0 0 420 128" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="g${id}" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="${c[2]}" stroke-opacity=".12" stroke-width="1"/></pattern></defs><rect width="420" height="128" rx="10" fill="${c[0]}"/><rect width="420" height="128" fill="url(#g${id})"/><path d="${path}" transform="translate(0 0)" fill="none" stroke="${c[2]}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="137" cy="13" r="4" fill="${c[2]}"/><text x="18" y="111" fill="${c[2]}" font-size="9" font-weight="700" letter-spacing="1.5">ECG LEARNING SERIES</text></svg>`;
+}
+function card(lesson){
+ const done=completed.has(lesson.id);
+ return `<article class="lesson-card" data-id="${lesson.id}" tabindex="0" role="button" aria-label="Open ${lesson.title}"><div class="thumb">${visualSVG(lesson.id)}<span class="lesson-number">LESSON ${String(lesson.id).padStart(2,'0')}</span>${done?'<span class="done-mark">✓</span>':''}</div><div class="card-body"><div class="card-meta"><span class="level">${lesson.level}</span><span class="duration">${lesson.duration}</span></div><h3>${lesson.title}</h3><div class="card-bottom"><span>${(lesson.quiz||[]).length} quiz questions</span><b>${done?'Completed ✓':'Start lesson →'}</b></div></div></article>`;
+}
+function bindCards(root){root.querySelectorAll('.lesson-card').forEach(el=>{const go=()=>openLesson(+el.dataset.id);el.addEventListener('click',go);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});}
+function updateStats(){
+ const n=completed.size,p=Math.round(n/lessons.length*100);
+ $('completedStat').textContent=n;$('minutesStat').textContent=p+'%';$('progressDone').textContent=n;$('progressPercent').textContent=p+'%';$('overallBar').style.width=p+'%';$('overallMeta').textContent=`${n} of ${lessons.length} lessons completed`;
+ const next=lessons.find(l=>!completed.has(l.id))||lessons[lessons.length-1];
+ $('continueTitle').textContent=next.title;$('continueDesc').textContent=`${next.level} · ${next.duration} · ${(next.quiz||[]).length} knowledge-check questions`;$('continueArt').innerHTML=visualSVG(next.id);
+ $('quizScore').textContent=latestScore===null?'—':latestScore+'%';
+}
+function render(){
+ $('featuredGrid').innerHTML=lessons.slice(0,3).map(card).join('');bindCards($('featuredGrid'));
+ renderCourses();$('progressGrid').innerHTML=lessons.map(card).join('');bindCards($('progressGrid'));updateStats();
+}
+function renderCourses(){
+ const q=$('search').value.trim().toLowerCase();
+ const list=lessons.filter(l=>(activeFilter==='All'||l.level===activeFilter)&&(!q||l.title.toLowerCase().includes(q)||l.content.toLowerCase().includes(q)));
+ $('allGrid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">No lessons match your search. Try another topic.</div>';
+ $('courseCount').textContent=`${list.length} lesson${list.length===1?'':'s'} available`;bindCards($('allGrid'));
+}
+function showPage(name){
+ ['dashboard','courses','progress','lesson'].forEach(p=>$(p+'Page').classList.toggle('hidden',p!==name));
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));
+ $('crumb').textContent=name==='lesson'?'Lesson':name[0].toUpperCase()+name.slice(1);
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function openLesson(id){
+ const l=lessons.find(x=>x.id===id);if(!l)return;currentLesson=id;
+ $('lessonHeading').textContent=l.title;$('lessonSub').textContent=`Lesson ${id} of ${lessons.length} · ${l.level} · ${l.duration}`;
+ $('lessonVisual').innerHTML=visualSVG(id,true);$('lessonContent').innerHTML=l.content;
+ $('asideLevel').textContent=l.level;$('asideDuration').textContent=l.duration;$('asideNumber').textContent=`${id} / ${lessons.length}`;$('asideQuiz').textContent=(l.quiz||[]).length;
+ $('pathway').innerHTML=lessons.map(x=>`<div class="aside-item" style="${x.id===id?'color:#159e91;font-weight:800':''}"><span>${String(x.id).padStart(2,'0')} · ${x.title}</span><b>${completed.has(x.id)?'✓':x.id===id?'●':''}</b></div>`).join('');
+ $('quizResult').textContent='';$('quizQuestions').innerHTML=(l.quiz||[]).map((q,i)=>`<div class="question" data-q="${i}"><strong>${i+1}. ${q.question}</strong>${q.options.map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}<div class="feedback" id="feedback${i}"></div></div>`).join('');
+ $('completeLesson').textContent=completed.has(id)?'Completed ✓':'Mark as complete ✓';$('prevLesson').disabled=id===1;$('nextLesson').disabled=id===lessons.length;
+ $('submitQuiz').onclick=()=>checkQuiz(l);$('completeLesson').onclick=()=>{completed.add(id);save();render();$('completeLesson').textContent='Completed ✓';$('completeLesson').style.background='#dff7ef';};
+ $('prevLesson').onclick=()=>id>1&&openLesson(id-1);$('nextLesson').onclick=()=>id<lessons.length&&openLesson(id+1);
+ showPage('lesson');
+}
+function checkQuiz(l){
+ let score=0,answered=0;
+ (l.quiz||[]).forEach((q,i)=>{const selected=document.querySelector(`input[name="q${i}"]:checked`);const f=$('feedback'+i);if(selected){answered++;const ok=+selected.value===q.answer;if(ok)score++;f.className='feedback '+(ok?'correct':'wrong');f.textContent=(ok?'Correct. ':'Not quite. ')+q.explanation;}else{f.className='feedback wrong';f.textContent='Choose an answer. '+q.explanation;}});
+ const pct=Math.round(score/(l.quiz||[]).length*100);latestScore=pct;$('quizScore').textContent=pct+'%';$('quizResult').textContent=`Score: ${score}/${l.quiz.length} (${pct}%)`;if(answered===l.quiz.length&&pct>=70){completed.add(l.id);save();render();$('completeLesson').textContent='Completed ✓';}
+}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>showPage(b.dataset.goto));
+$('heroContinue').onclick=$('continueBtn').onclick=$('sideContinue').onclick=()=>{const next=lessons.find(l=>!completed.has(l.id))||lessons[0];openLesson(next.id);};
+$('backBtn').onclick=()=>showPage('courses');
+$('search').addEventListener('input',()=>{if(!$('coursesPage').classList.contains('hidden'))renderCourses();else{showPage('courses');renderCourses();}});
+$('filters').querySelectorAll('button').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.filter;$('filters').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderCourses();});
+render();
+</script>
+</body></html>
